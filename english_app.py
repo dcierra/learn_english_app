@@ -1,10 +1,10 @@
 import sys
 from PyQt5 import QtWidgets
-from english_app_ui import *
 import random
 import translators
 from thread_methods import *
-import os
+from auth import *
+from english_app_ui import *
 
 
 class GUI(QtWidgets.QMainWindow):
@@ -68,11 +68,11 @@ class GUI(QtWidgets.QMainWindow):
 
     # Заполнение
     def filling(self):
-        self.ui.label_word.setText(random.sample(self.arr_english_words, 1)[0])
-        self.ui.tBtn_first_word.setText(random.sample(self.arr_russian_words, 1)[0])
-        self.ui.tBtn_second_word.setText(random.sample(self.arr_russian_words, 1)[0])
-        self.ui.tBtn_third_word.setText(random.sample(self.arr_russian_words, 1)[0])
-        self.ui.tBtn_fourth_word.setText(random.sample(self.arr_russian_words, 1)[0])
+        self.ui.label_word.setText(random.choice(self.arr_english_words))
+        self.ui.tBtn_first_word.setText(random.choice(self.arr_russian_words))
+        self.ui.tBtn_second_word.setText(random.choice(self.arr_russian_words))
+        self.ui.tBtn_third_word.setText(random.choice(self.arr_russian_words))
+        self.ui.tBtn_fourth_word.setText(random.choice(self.arr_russian_words))
         random.choice([self.ui.tBtn_first_word, self.ui.tBtn_second_word, self.ui.tBtn_third_word, self.ui.tBtn_fourth_word]).setText(translators.google(self.ui.label_word.text(), from_language='en', to_language='ru').lower())
 
     # Проверка, что нажата правильная кнопка
@@ -155,4 +155,6 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     english_app = GUI()
     english_app.show()
+    auth = Auth()
+    auth.show()
     sys.exit(app.exec_())
