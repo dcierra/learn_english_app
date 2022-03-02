@@ -578,7 +578,64 @@ QToolButton:pressed {
 }</string>
      </property>
      <property name="text">
-      <string>?</string>
+      <string></string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QToolButton" name="tBtn_voice">
+     <property name="geometry">
+      <rect>
+       <x>277</x>
+       <y>7</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial Black</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QToolButton {
+	border-radius: 15px;
+	border: 2px solid black;
+	background-color: rgb(68, 68, 220);
+	color: white;
+}
+QToolButton:hover {
+	border: 2px solid black;
+	background-color: rgb(92, 130, 255);
+	color: white;
+}
+QToolButton:pressed {
+	border: 2px solid black;
+	color: white;
+	background-color: blue;
+}</string>
+     </property>
+     <property name="text">
+      <string></string>
      </property>
      <property name="iconSize">
       <size>

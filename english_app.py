@@ -5,6 +5,7 @@ import translators
 from thread_methods import *
 from auth import *
 from english_app_ui import *
+import pyttsx3
 
 
 class GUI(QtWidgets.QMainWindow):
@@ -12,6 +13,9 @@ class GUI(QtWidgets.QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        # Иницилизация голоса
+        self.engine = pyttsx3.init()
 
         # Убираем рамки
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
@@ -26,6 +30,7 @@ class GUI(QtWidgets.QMainWindow):
         self.ui.tBtn_third_word.clicked.connect(self.check_third_btn)
         self.ui.tBtn_fourth_word.clicked.connect(self.check_fourth_btn)
         self.ui.tBtn_load_file.clicked.connect(self.choose_path_load_file)
+        self.ui.tBtn_voice.clicked.connect(self.voice_word)
 
         # Создание потока
         self.thread_progress_bar = MyThreadProgressBar()
@@ -36,7 +41,6 @@ class GUI(QtWidgets.QMainWindow):
 
         # Начальное заполнение
         self.filling()
-
 
     # Выбор пути до файла со словами
     def choose_path_load_file(self):
@@ -56,6 +60,11 @@ class GUI(QtWidgets.QMainWindow):
         else:
             self.msg_miss()
             self.ui.progressBar.setValue(0)
+
+    # Озвучка слова
+    def voice_word(self):
+        self.engine.say(self.ui.label_word.text())
+        self.engine.runAndWait()
 
     # Функции, выводящие сообщения
     def msg_win(self):

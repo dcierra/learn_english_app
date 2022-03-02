@@ -28,7 +28,6 @@ class Auth(QtWidgets.QWidget):
         flag = True
         if len(username) > 0:
             for user in users:
-                print(user)
                 if username == user[0]:
                     QtWidgets.QMessageBox.information(self, 'Приветствие', f'С возвращением, {username}!')
                     flag = False

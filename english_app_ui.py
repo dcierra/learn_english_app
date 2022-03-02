@@ -279,6 +279,34 @@ class Ui_MainWindow(object):
 "}")
         self.tBtn_load_file.setIconSize(QtCore.QSize(20, 20))
         self.tBtn_load_file.setObjectName("tBtn_load_file")
+        self.tBtn_voice = QtWidgets.QToolButton(self.general_frame)
+        self.tBtn_voice.setGeometry(QtCore.QRect(277, 7, 50, 30))
+        self.tBtn_voice.setMinimumSize(QtCore.QSize(50, 30))
+        self.tBtn_voice.setMaximumSize(QtCore.QSize(50, 30))
+        font = QtGui.QFont()
+        font.setFamily("Arial Black")
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.tBtn_voice.setFont(font)
+        self.tBtn_voice.setStyleSheet("QToolButton {\n"
+"    border-radius: 15px;\n"
+"    border: 2px solid black;\n"
+"    background-color: rgb(68, 68, 220);\n"
+"    color: white;\n"
+"}\n"
+"QToolButton:hover {\n"
+"    border: 2px solid black;\n"
+"    background-color: rgb(92, 130, 255);\n"
+"    color: white;\n"
+"}\n"
+"QToolButton:pressed {\n"
+"    border: 2px solid black;\n"
+"    color: white;\n"
+"    background-color: blue;\n"
+"}")
+        self.tBtn_voice.setIconSize(QtCore.QSize(20, 20))
+        self.tBtn_voice.setObjectName("tBtn_voice")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -296,4 +324,5 @@ class Ui_MainWindow(object):
         self.tBtn_second_word.setText(_translate("MainWindow", "WORD"))
         self.tBtn_third_word.setText(_translate("MainWindow", "WORD"))
         self.tBtn_fourth_word.setText(_translate("MainWindow", "WORD"))
-        self.tBtn_load_file.setText(_translate("MainWindow", "?"))
+        self.tBtn_load_file.setText(_translate("MainWindow", ""))
+        self.tBtn_voice.setText(_translate("MainWindow", ""))
